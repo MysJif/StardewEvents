@@ -1,10 +1,6 @@
 #imports
 import tweepy, math, datetime, time
 
-#variables
-sdv_date = 0
-sdv_month = 0
-
 #Tweepy Authorization
 f = open("keys.txt", "r")
 lines = f.readlines()
@@ -16,6 +12,12 @@ access_token_secret = lines[3]
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
+
+#variables
+g = open("date.txt", "r")
+lines2 = g.readlines()
+sdv_date = lines2[0]
+sdv_month = lines2[1]
 
 #Adjusts the date so that the year stars in spring
 def springAdjust(day):
@@ -114,10 +116,10 @@ def isLeapYear(year):
         return True
     else:
         return False
-datetime.datetime.now
+
 #Returns the SDV day of year from current date
 def getDayOfYear():
-    return convertSdDay(springAdjust(datetime.datetime.now().timetuple().tm_yday), isLeapYear(datetime.datetime.now().year))
+    return convertSdDay(springAdjust(datetime.datetime.utcnow().timetuple().tm_yday), isLeapYear(datetime.datetime.utcnow().year))
 
 #Returns the SDV day of the month from the current date
 def getDayOfSeason():
@@ -251,19 +253,18 @@ def secondsUntilSix():
 
 #Main function
 def main():
-    time.sleep(secondsUntilSix())
     tweet = ""
     doTweet = False
-    while True:
-        if sdv_month == getMonth() and sdv_date == getDayOfSeason():
-            doTweet = False
-        else:
-            doTweet = True
-        sdv_date = getDayOfSeason()
-        sdv_month = getMonth()
-        if doTweet:
-            tweet = "Today is " + str(getFullDate()) + str(eventModifier(getDayOfSeason(), getMonth()))
-            api.update_status(tweet)
-        time.sleep(86400)
+    if sdv_month == getMonth() and sdv_date == getDayOfSeason():
+        doTweet = False
+    else:
+        doTweet = True
+    sdv_date = getDayOfSeason()
+    sdv_month = getMonth()
+    g.truncate(0)
+    g.writelines([sdv_date, sdv_month])
+    if doTweet:
+        tweet = "Today is " + str(getFullDate()) + str(eventModifier(getDayOfSeason(), getMonth()))
+        api.update_status(tweet)
 
 main()
