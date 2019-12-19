@@ -17,7 +17,7 @@ api = tweepy.API(auth)
 g = open("date.txt", "r")
 lines2 = g.readlines()
 sdv_date = int(str(lines2[0]).rstrip("\n"))
-sdv_month = lines2[1]
+sdv_month = int(str(lines2[1]))
 
 #Adjusts the date so that the year stars in spring
 def springAdjust(day):
@@ -265,7 +265,7 @@ def main():
     sdv_month = getMonth()
     h = open("date.txt", "w")
     h.truncate(0)
-    h.writelines([sdv_date, sdv_month])
+    h.writelines([str(sdv_date), str(sdv_month)])
     if doTweet:
         tweet = "Today is " + str(getFullDate()) + str(eventModifier(getDayOfSeason(), getMonth()))
         api.update_status(tweet)
