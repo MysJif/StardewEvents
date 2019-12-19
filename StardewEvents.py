@@ -255,12 +255,14 @@ def secondsUntilSix():
 def main():
     tweet = ""
     doTweet = False
-    if global sdv_month == getMonth() and global sdv_date == getDayOfSeason():
+    global sdv_date
+    global sdv_month
+    if sdv_month == getMonth() and sdv_date == getDayOfSeason():
         doTweet = False
     else:
         doTweet = True
-    global sdv_date = getDayOfSeason()
-    global sdv_month = getMonth()
+    sdv_date = getDayOfSeason()
+    sdv_month = getMonth()
     g.truncate(0)
     g.writelines([sdv_date, sdv_month])
     if doTweet:
