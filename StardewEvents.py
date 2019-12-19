@@ -178,69 +178,69 @@ def eventModifier(date, month):
         elif date == 11:
             return "The Luau is today!"
         elif date == 13:
-            return "Today is Alex's birthday!"
+            return "It is Alex's birthday!"
         elif date == 17:
-            return "Today is Sam's birthday!"
+            return "It is Sam's birthday!"
         elif date == 19:
-            return "Today is Demetrius's birthday!"
+            return "It is Demetrius's birthday!"
         elif date == 22:
-            return "Today is The Dwarf's birthday!"
+            return "It is The Dwarf's birthday!"
         elif date == 24:
-            return "Today is Willy's birthday!"
+            return "It is Willy's birthday!"
         elif date == 28:
             return "The Dance of the Moonlight Jellies is today!"
         else:
             return ""
     elif month == 3:
         if date == 2:
-            return "Today is Penny's birthday!"
+            return "It is Penny's birthday!"
         elif date == 5:
-            return "Today is Elliot's birthday!"
+            return "It is Elliot's birthday!"
         elif date == 8:
             return "Blackberry Season begins today!"
         elif date == 11:
-            return "Today is Jodi's birthday!"
+            return "It is Jodi's birthday!"
         elif date == 13:
-            return "Today is Abigail's birthday!"
+            return "It is Abigail's birthday!"
         elif date == 15:
-            return "Today is Sandy's birthday!"
+            return "It is Sandy's birthday!"
         elif date == 16:
             return "The Stardew Valley fair is today!"
         elif date == 18:
-            return "Today is Marnie's birthday!"
+            return "It is Marnie's birthday!"
         elif date == 21:
-            return "Today is Robin's birthday!"
+            return "It is Robin's birthday!"
         elif date == 24:
-            return "Today is George's birthday!"
+            return "It is George's birthday!"
         elif date == 27:
             return "Spirit's Eve is today!"
         else:
             return ""
     else:
         if date == 1:
-            return "Today is Krobus's birthday!"
+            return "It is Krobus's birthday!"
         elif date == 3:
-            return "Today is Linus's birthday!"
+            return "It is Linus's birthday!"
         elif date == 7:
-            return "Today is Caroline's birthday!"
+            return "It is Caroline's birthday!"
         elif date == 8:
             return "The Festival of Ice is today!"
         elif date == 10:
-            return "Today is Sebastian's birthday!"
+            return "It is Sebastian's birthday!"
         elif date == 14:
-            return "Today is Harvey's birthday!"
+            return "It is Harvey's birthday!"
         elif date == 15:
             return "The Night Market begins today!"
         elif date == 17:
-            return "Today is The Wizard's birthday!"
+            return "It is The Wizard's birthday!"
         elif date == 20:
-            return "Today is Evelyn's birthday!"
+            return "It is Evelyn's birthday!"
         elif date == 23:
-            return "Today is Leah's birthday!"
+            return "It is Leah's birthday!"
         elif date == 25:
             return "The Feast of the Winter Star is today!"
         elif date == 26:
-            return "Today is Clint's birthday!"
+            return "It is Clint's birthday!"
         else:
             return ""
 
