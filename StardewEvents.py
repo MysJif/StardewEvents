@@ -14,8 +14,6 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 #variables
-g = open("date.txt", "r")
-lines2 = g.readlines()
 sdv_date = lines2[0]
 sdv_month = lines2[1]
 
@@ -263,6 +261,8 @@ def main():
         doTweet = True
     sdv_date = getDayOfSeason()
     sdv_month = getMonth()
+    g = open("date.txt", "r")
+    lines2 = g.readlines()
     g.truncate(0)
     g.writelines([sdv_date, sdv_month])
     if doTweet:
