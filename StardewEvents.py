@@ -16,7 +16,7 @@ api = tweepy.API(auth)
 #variables
 g = open("date.txt", "r")
 lines2 = g.readlines()
-sdv_date = lines2[0]
+sdv_date = int(str(lines2[0]).rstrip("\n"))
 sdv_month = lines2[1]
 
 #Adjusts the date so that the year stars in spring
