@@ -265,9 +265,8 @@ def main():
     sdv_month = getMonth()
     h = open("date.txt", "w")
     h.truncate(0)
-    h.writelines([str(sdv_date), str(sdv_month)])
+    h.writelines([str(sdv_date) + "\n", str(sdv_month)])
     if doTweet:
         tweet = "Today is " + str(getFullDate()) + str(eventModifier(getDayOfSeason(), getMonth()))
         api.update_status(tweet)
-
 main()
