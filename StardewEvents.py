@@ -263,7 +263,7 @@ def main():
         doTweet = True
     sdv_date = getDayOfSeason()
     sdv_month = getMonth()
-    h = open("date.txt", "r")
+    h = open("date.txt", "w")
     lines3 = h.readlines()
     h.truncate(0)
     h.writelines([sdv_date, sdv_month])
