@@ -4,10 +4,10 @@ import tweepy, math, datetime, time
 #Tweepy Authorization
 f = open("keys.txt", "r")
 lines = f.readlines()
-consumer_key = lines[0]
-consumer_secret = lines[1]
-access_token = lines[2]
-access_token_secret = lines[3]
+consumer_key = str(lines[0]).rstrip("\n")
+consumer_secret = str(lines[1]).rstrip("\n")
+access_token = str(lines[2]).rstrip("\n)")
+access_token_secret = str(lines[3])
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 auth.set_access_token(access_token, access_token_secret)
