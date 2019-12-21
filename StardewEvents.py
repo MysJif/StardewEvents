@@ -105,7 +105,6 @@ def getDayOfWeek(day):
     else:
         return "Sunday"
 
-
 #Determine if a given year is a leap year
 def isLeapYear(year):
     if year % 400 == 0:
@@ -138,6 +137,36 @@ def getFullDate():
     dayOfSeason = getDayOfSeason()
     dayOfWeek = getDayOfWeek(getDayOfSeason())
     season = getSeason()
+
+    return str(dayOfWeek) + ", the " + str(dayOfSeason) + " of " + str(season) + ". "
+
+#Returns the SDV month from a provided date
+def getMonthSpec(day, month, year):
+    return sdSeason(getDayOfYearSpec(day, month, year))
+
+#Returns the gregorian day of year from a provided date
+def getDayOfYearSpec(day, month, year):
+    newDate = datetime.date(year, month, day)
+
+    return newDate.timetuple().tm_yday
+
+#Returns the SDV day of year from a provided date
+def getDayOfYearSDVSpec(day, month, year):
+    return convertSdDay(springAdjust(getDayOfYearSpec(day, month, year)), isLeapYear(year))
+
+#Returns the SDV day of the month from a provided date
+def getDayOfSeasonSpec(day, month, year):
+    return sdDayOfSeason(getDayOfYearSDVSpec(day, month, year), sdSeason(getDayOfYearSDVSpec(day, month, year)))
+
+#Returns the SDV season from a provided date.
+def getSeasonSpec(day, month, year):
+    return seasonString(getMonthSpec(day, month, year))
+
+#Returns the full written out SDV date from a provide date
+def getFullDateSpec(day, month, year):
+    dayOfSeason = getDayOfSeasonSpec(day, month, year)
+    dayOfWeek = getDayOfWeek(dayOfSeason)
+    season = getSeasonSpec(day, month, year)
 
     return str(dayOfWeek) + ", the " + str(dayOfSeason) + " of " + str(season) + ". "
 
@@ -269,4 +298,5 @@ def main():
     if doTweet:
         tweet = "Today is " + str(getFullDate()) + str(eventModifier(getDayOfSeason(), getMonth()))
         api.update_status(tweet)
+
 main()
