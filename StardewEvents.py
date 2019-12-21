@@ -2,7 +2,7 @@
 import tweepy, math, datetime, time
 
 #Tweepy Authorization
-f = open("keys.txt", "r")
+f = open("/home/jif/StardewEvents/StardewEvents/keys.txt", "r")
 lines = f.readlines()
 consumer_key = str(lines[0]).rstrip("\n")
 consumer_secret = str(lines[1]).rstrip("\n")
@@ -14,7 +14,7 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 #variables
-g = open("date.txt", "r")
+g = open("/home/jif/StardewEvents/StardewEvents/date.txt", "r")
 lines2 = g.readlines()
 sdv_date = int(str(lines2[0]).rstrip("\n"))
 sdv_month = int(str(lines2[1]))
@@ -263,7 +263,7 @@ def main():
         doTweet = True
     sdv_date = getDayOfSeason()
     sdv_month = getMonth()
-    h = open("date.txt", "w")
+    h = open("/home/jif/StardewEvents/StardewEvents/date.txt", "w")
     h.truncate(0)
     h.writelines([str(sdv_date) + "\n", str(sdv_month)])
     if doTweet:
